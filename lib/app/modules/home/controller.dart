@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:todo_app/app/data/services/storage/repository.dart';
@@ -57,7 +54,7 @@ class HomeController extends GetxController{
 
   updateTask(Task task, String title) {
     var todos = task.todos ?? [];
-    if (containeTodo(todos, title)) {
+    if (containTodo(todos, title)) {
       return false;
     }
     var todo = {'title': title, 'done': false};
@@ -69,7 +66,7 @@ class HomeController extends GetxController{
     return true;
   }
 
-  bool containeTodo(List todos, String title) {
+  bool containTodo(List todos, String title) {
     return todos.any((element) => element['title'] == title);
   }
 }
